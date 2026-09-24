@@ -3,30 +3,30 @@
 # tr — русская научная транскрипция (точка/черта под буквой = «похожий, но другой звук»).
 - { char: ا, name: алиф,  tr: а̄,  joining: right, unit: 1, sound: "своего звука нет; после фатхи тянет а в долгое а̄" }
 - { char: د, name: даль,  tr: д,  joining: right, unit: 1, sound: "как русское д" }
-- { char: ذ, name: заль,  tr: з̱,  joining: right, unit: 1, sound: "межзубный, как th в английском this" }
+- { char: ذ, name: з̱аль, tr: з̱,  joining: right, unit: 1, sound: "межзубный, как th в английском this" }
 - { char: ر, name: ра,    tr: р,  joining: right, unit: 1, sound: "раскатистое р" }
 - { char: ز, name: зай,   tr: з,  joining: right, unit: 1, sound: "как русское з" }
 - { char: و, name: вав,   tr: в,  joining: right, unit: 1, sound: "губное w; после даммы тянет у в долгое ӯ" }
 - { char: ب, name: ба,    tr: б,  joining: dual,  unit: 2, sound: "как русское б" }
 - { char: ت, name: та,    tr: т,  joining: dual,  unit: 2, sound: "как русское т" }
-- { char: ث, name: са,    tr: с̱,  joining: dual,  unit: 2, sound: "межзубный, как th в английском think" }
+- { char: ث, name: с̱а,   tr: с̱,  joining: dual,  unit: 2, sound: "межзубный, как th в английском think" }
 - { char: ن, name: нун,   tr: н,  joining: dual,  unit: 2, sound: "как русское н" }
 - { char: م, name: мим,   tr: м,  joining: dual,  unit: 2, sound: "как русское м" }
 - { char: ي, name: йа,    tr: й,  joining: dual,  unit: 2, sound: "как й; после касры тянет и в долгое ӣ" }
-- { char: ه, name: ха,    tr: х̮,  joining: dual,  unit: 3, sound: "лёгкий выдох, как английское h" }
+- { char: ه, name: х̮а,   tr: х̮,  joining: dual,  unit: 3, sound: "лёгкий выдох, как английское h" }
 - { char: ل, name: лям,   tr: л,  joining: dual,  unit: 3, sound: "мягкое л" }
 - { char: ء, name: хамза, tr: ʼ,  joining: none,  unit: 3, sound: "короткая смычка горла, как пауза в «не-а»" }
 - { char: ج, name: джим,  tr: дж, joining: dual,  unit: 4, sound: "слитное дж" }
-- { char: ح, name: ха,    tr: х̣,  joining: dual,  unit: 4, sound: "сиплый выдох из глубины горла" }
+- { char: ح, name: х̣а,   tr: х̣,  joining: dual,  unit: 4, sound: "сиплый выдох из глубины горла" }
 - { char: خ, name: ха,    tr: х,  joining: dual,  unit: 4, sound: "грубое русское х" }
 - { char: ع, name: айн,   tr: ʻ,  joining: dual,  unit: 4, sound: "звонкое сжатие горла" }
 - { char: س, name: син,   tr: с,  joining: dual,  unit: 5, sound: "как русское с" }
-- { char: ص, name: сад,   tr: с̣,  joining: dual,  unit: 5, sound: "эмфатическое, «толстое» с" }
-- { char: ط, name: та,    tr: т̣,  joining: dual,  unit: 5, sound: "эмфатическое т" }
+- { char: ص, name: с̣ад,  tr: с̣,  joining: dual,  unit: 5, sound: "эмфатическое, «толстое» с" }
+- { char: ط, name: т̣а,   tr: т̣,  joining: dual,  unit: 5, sound: "эмфатическое т" }
 - { char: ق, name: каф,   tr: к̣,  joining: dual,  unit: 5, sound: "глубокое к у маленького язычка" }
 - { char: ش, name: шин,   tr: ш,  joining: dual,  unit: 6, sound: "мягкое ш" }
 - { char: غ, name: гайн,  tr: г̣,  joining: dual,  unit: 6, sound: "картавое р, как во французском" }
 - { char: ف, name: фа,    tr: ф,  joining: dual,  unit: 6, sound: "как русское ф" }
 - { char: ك, name: кяф,   tr: к,  joining: dual,  unit: 7, sound: "мягкое к" }
-- { char: ض, name: дад,   tr: д̣,  joining: dual,  unit: 7, sound: "эмфатическое д" }
-- { char: ظ, name: за,    tr: з̣,  joining: dual,  unit: 7, sound: "эмфатический межзубный" }
+- { char: ض, name: д̣ад,  tr: д̣,  joining: dual,  unit: 7, sound: "эмфатическое д" }
+- { char: ظ, name: з̣а,   tr: з̣,  joining: dual,  unit: 7, sound: "эмфатический межзубный" }
