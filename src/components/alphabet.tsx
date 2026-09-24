@@ -13,10 +13,10 @@ import { buttonClass } from "./button";
 import { BACKDROP, POPUP } from "./modal";
 
 const POSITIONS = [
-  { key: "isolated", label: "отдельная" },
-  { key: "initial", label: "начальная" },
-  { key: "medial", label: "срединная" },
-  { key: "final", label: "конечная" },
+  { key: "isolated", label: "отдельная", short: "отд." },
+  { key: "initial", label: "начальная", short: "нач." },
+  { key: "medial", label: "срединная", short: "сред." },
+  { key: "final", label: "конечная", short: "кон." },
 ] as const;
 
 const ROWS: BuiltLetter[] = [...ALPHABET_ORDER, "ء"].map((c) => content.letters[c]);
@@ -47,7 +47,7 @@ export function Alphabet() {
           {POSITIONS.map((p) => (
             <span role="columnheader" key={p.key} className="py-2.5 text-center">
               <span className="hidden sm:inline">{p.label}</span>
-              <span className="sm:hidden">{p.label.slice(0, 4)}.</span>
+              <span className="sm:hidden">{p.short}</span>
             </span>
           ))}
         </div>
