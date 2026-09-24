@@ -147,7 +147,8 @@ function Session({ lesson }: { lesson: Lesson }) {
       }
       if (e.key === "Enter") {
         const t = e.target as HTMLElement;
-        if (t.tagName === "BUTTON" || t.tagName === "A") return;
+        // Кнопки вариантов и плиток не перехватывают Enter: выбрал мышью, проверил клавишей.
+        if (t.closest("a") || (t.tagName === "BUTTON" && !t.closest("[data-step]"))) return;
         e.preventDefault();
         primary();
       }
@@ -181,7 +182,7 @@ function Session({ lesson }: { lesson: Lesson }) {
         </span>
       </header>
 
-      <main className="mx-auto w-full max-w-2xl flex-1 px-5 pt-8 pb-40 md:pt-12">
+      <main className="mx-auto w-full max-w-2xl flex-1 px-5 pt-8 pb-60 sm:pb-40 md:pt-12">
         <p className="mb-4 text-xs font-semibold tracking-[0.14em] text-rubric uppercase">
           {unit.number === 0 ? "Вводный юнит" : `Юнит ${unit.number}`} · урок {lessonNumber(lesson.id)} · {lesson.title}
         </p>
@@ -276,7 +277,7 @@ function Footer({
             </div>
           )}
           {status === "answering" && exercise && (
-            <p className="hidden pt-3 text-sm text-ink-faint [@media(hover:hover)]:block">
+            <p className="hidden pt-3 text-sm text-ink-faint [@media(hover:hover)_and_(min-width:640px)]:block">
               {step.type === "input" ? "Напиши и нажми Enter" : "Клавиши 1–9 выбирают, Enter проверяет, Esc выходит"}
             </p>
           )}

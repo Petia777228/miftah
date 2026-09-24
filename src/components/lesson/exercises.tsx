@@ -174,7 +174,7 @@ export function TilesExercise({
             aria-label={`Убрать ${bank[i]}`}
             className={`animate-rise rounded-tile border-2 px-3.5 py-1 ${tone}`}
           >
-            <Mixed text={bank[i]} size="lg" className={arabicAnswer ? "" : "text-lg"} />
+            <Mixed text={bank[i]} size={step.type === "build" ? "lg" : "md"} className={arabicAnswer ? "" : "text-lg"} />
           </button>
         ))}
         {picked.length > 0 && !locked && (
@@ -213,7 +213,7 @@ export function TilesExercise({
               <span className="absolute -top-2 -left-1.5 rounded-full bg-paper px-1 text-[11px] text-ink-faint tabular-nums" dir="ltr">
                 {i + 1}
               </span>
-              <Mixed text={t} size="lg" className={isArabic(t) ? "" : "text-lg"} />
+              <Mixed text={t} size={step.type === "build" ? "lg" : "md"} className={isArabic(t) ? "" : "text-lg"} />
             </button>
           );
         })}

@@ -56,7 +56,9 @@ async function solveLesson(page, lessonId, width) {
     } else {
       // Выбор варианта клавишей: находим номер верного варианта на экране.
       const opts = await page.locator("[data-option]").evaluateAll((els) => els.map((e) => e.dataset.option));
-      await page.keyboard.press(String(opts.indexOf(step.answer) + 1));
+      // Узкий экран: тап мышью; широкий: цифрой. В обоих случаях проверка клавишей Enter.
+      if (width < 500) await page.locator("[data-option]").nth(opts.indexOf(step.answer)).click();
+      else await page.keyboard.press(String(opts.indexOf(step.answer) + 1));
     }
     await shot();
     await page.keyboard.press("Enter");
