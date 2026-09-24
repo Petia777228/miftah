@@ -1,0 +1,100 @@
+/*
+ * Мифтах: дизайн-токены. ЕДИНСТВЕННОЕ место с цветами, шрифтами, радиусами и таймингами.
+ * Идея: страница старой книги. Бумага, чернила, красная киноварь рубрик, синие чернила для действий.
+ * Компоненты используют только утилиты Tailwind на этих токенах (bg-paper, text-ink, …).
+ */
+
+:root {
+  color-scheme: light;
+  --paper: #f4efe4;          /* фон: бумага */
+  --sheet: #fbf8f1;          /* карточки, поля урока */
+  --sheet-sunk: #ebe4d5;     /* углублённые места: трек прогресса, плитки-слоты */
+  --ink: #26221c;            /* основной текст */
+  --ink-soft: #5e564b;       /* вторичный текст */
+  --ink-faint: #8c8373;      /* подписи, неактивное */
+  --rule: #ddd3c1;           /* линейки, границы */
+  --rubric: #a2432a;         /* киноварь: номера, акценты арабского */
+  --action: #274d6b;         /* синие чернила: главная кнопка, ссылки */
+  --action-ink: #fbf8f1;     /* текст на action */
+  --success: #3f6a43;
+  --success-wash: #e3ecd9;
+  --danger: #a8392a;
+  --danger-wash: #f5dfd6;
+  --focus: #274d6b;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #191815;
+  --sheet: #22201c;
+  --sheet-sunk: #2c2924;
+  --ink: #ece5d6;
+  --ink-soft: #b3aa99;
+  --ink-faint: #857d6f;
+  --rule: #3a3630;
+  --rubric: #e08e68;
+  --action: #9cc0de;
+  --action-ink: #16222d;
+  --success: #93bf8a;
+  --success-wash: #243325;
+  --danger: #ec907a;
+  --danger-wash: #3d2521;
+  --focus: #9cc0de;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-sheet-sunk: var(--sheet-sunk);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-rubric: var(--rubric);
+  --color-action: var(--action);
+  --color-action-ink: var(--action-ink);
+  --color-success: var(--success);
+  --color-success-wash: var(--success-wash);
+  --color-danger: var(--danger);
+  --color-danger-wash: var(--danger-wash);
+  --color-focus: var(--focus);
+
+  /* Шрифты подключаются next/font/local в layout.tsx и отдают CSS-переменные. */
+  --font-sans: var(--font-golos), system-ui, sans-serif;
+  --font-serif: var(--font-literata), Georgia, serif;
+  --font-arabic: var(--font-amiri), var(--font-naskh), serif;
+  --font-arabic-ui: var(--font-naskh), var(--font-amiri), serif;
+}
+
+@theme {
+  --radius-card: 14px;
+  --radius-tile: 10px;
+
+  /* Типошкала арабского: огласовки требуют высокой строки (≥ 1.8). */
+  --text-ar-sm: 1.5rem;
+  --text-ar-sm--line-height: 2;
+  --text-ar-md: 2.25rem;
+  --text-ar-md--line-height: 2;
+  --text-ar-lg: 3.5rem;
+  --text-ar-lg--line-height: 1.9;
+  --text-ar-xl: 5rem;
+  --text-ar-xl--line-height: 1.8;
+
+  /* Движение: коротко и ease-out, только transform/opacity. */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+
+  --animate-rise: rise var(--duration-base) var(--ease-out-soft) both;
+  --animate-shake: shake 300ms var(--ease-out-soft);
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+  }
+}

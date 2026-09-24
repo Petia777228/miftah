@@ -1,0 +1,228 @@
+# Юнит 1: ا د ذ ر ز و, гласные а/и/у, слог.
+# Все шесть букв не соединяются с буквой слева, поэтому в словах юнита каждая буква стоит отдельно.
+# Удвоения (шадды) и танвина здесь нет: по Кузьмину они приходят в юните 3.
+# Существительные записаны в словарной форме, последняя буква без огласовки (читаем в паузе).
+unit: 1
+words:
+  - { id: dhada, ar: ذَادَ,  tr: з̱а̄да,  ru: "отогнал, защитил", root: ذ و د, pos: verb }
+  - { id: dara,  ar: دَارَ,  tr: да̄ра,  ru: "кружил, вращался", root: د و ر, pos: verb }
+  - { id: zara,  ar: زَارَ,  tr: за̄ра,  ru: "посетил",          root: ز و ر, pos: verb }
+  - { id: zada,  ar: زَادَ,  tr: за̄да,  ru: "прибавил, вырос",  root: ز ي د, pos: verb }
+  - { id: dhara, ar: ذَرَا,  tr: з̱ара̄,  ru: "развеял (о ветре)", root: ذ ر و, pos: verb }
+  - { id: zarad, ar: زَرَد,  tr: зарад, ru: "кольчуга",         root: ز ر د, pos: noun, gender: m }
+  - { id: darz,  ar: دَرْز,  tr: дарз,  ru: "шов",              root: د ر ز, pos: noun, gender: m }
+  - { id: warada, ar: وَرَدَ, tr: варада, ru: "пришёл (к воде)", root: و ر د, pos: verb }
+  - { id: ward,  ar: وَرْد,  tr: вард,  ru: "розы",             root: و ر د, pos: noun, gender: m }
+  - { id: dar,   ar: دَار,   tr: да̄р,   ru: "дом",              root: د و ر, pos: noun, gender: f }
+  - { id: dur,   ar: دُور,   tr: дӯр,   ru: "дома (мн. ч.)",    root: د و ر, pos: noun }
+  - { id: zur,   ar: زُور,   tr: зӯр,   ru: "ложь",             root: ز و ر, pos: noun, gender: m }
+  - { id: wizr,  ar: وِزْر,  tr: визр,  ru: "бремя",            root: و ز ر, pos: noun, gender: m }
+
+lessons:
+  - id: u1-l1
+    kind: letters
+    title: Даль, заль и алиф
+    letters: [د, ذ, ا]
+    words: [dhada]
+    steps:
+      - type: theory
+        text: |
+          **Даль** د: уголок, открытый влево. Звучит как русское д.
+        examples:
+          - { ar: دَ, tr: да }
+          - { ar: دِ, tr: ди }
+          - { ar: دُ, tr: ду }
+      - type: read
+        show: دَ
+        correct: да
+        wrong: [ду, ди, за]
+      - type: theory
+        text: |
+          **Заль** ذ: тот же уголок с точкой сверху. Звук з̱: кончик языка между зубами, как th в английском *this*.
+        examples:
+          - { ar: ذَ, tr: з̱а }
+          - { ar: ذِ, tr: з̱и }
+          - { ar: ذُ, tr: з̱у }
+      - type: read
+        show: ذِ
+        correct: з̱и
+        wrong: [ди, з̱а, з̱у]
+      - type: choice
+        prompt: Где написано «ду»?
+        correct: دُ
+        wrong: [دَ, دِ, ذُ]
+      - type: theory
+        text: |
+          **Алиф** ا: вертикальная черта. Своего звука у него нет: после фатхи он тянет а в долгое **а̄**.
+        examples:
+          - { ar: دَا, tr: да̄ }
+          - { ar: ذَا, tr: з̱а̄ }
+      - type: read
+        show: دَا
+        correct: да̄
+        wrong: [да, ду, з̱а̄]
+      - type: theory
+        text: |
+          Даль, заль и алиф не соединяются с буквой слева. Поэтому у них две формы, а не четыре: отдельная и конечная, с хвостиком связки справа.
+        examples:
+          - { ar: د, ru: "отдельная и в начале слова" }
+          - { ar: ـد, ru: "в конце и в середине, после соединяющей буквы" }
+      - type: position
+        letter: د
+        position: final
+      - type: position
+        letter: ذ
+        position: initial
+      - type: build
+        word: dhada
+      - type: choice
+        show: ذَادَ
+        prompt: Что значит это слово?
+        correct: отогнал
+        wrong: [пришёл, посетил, дом]
+      - type: input
+        show: ذَا
+        prompt: Напиши, как читается
+        answer: з̱а̄
+
+  - id: u1-l2
+    kind: letters
+    title: Ра и зай
+    letters: [ر, ز]
+    words: [dara, zara, zada, dhara, zarad, darz]
+    steps:
+      - type: theory
+        text: |
+          **Ра** ر: дуга, которая уходит под строку. Раскатистое р.
+          **Зай** ز: та же дуга с точкой. Звук з, как в русском.
+        examples:
+          - { ar: رَ, tr: ра }
+          - { ar: زِ, tr: зи }
+          - { ar: رُ, tr: ру }
+      - type: read
+        show: رُ
+        correct: ру
+        wrong: [ра, зу, ду]
+      - type: choice
+        prompt: Где звук з, а не з̱?
+        correct: زَ
+        wrong: [ذَ, رَ, دَ]
+      - type: theory
+        text: |
+          Буква с сукуном закрывает слог: гласного после неё нет.
+        examples:
+          - { ar: دَرْز, tr: дарз, ru: шов }
+          - { ar: زَرَد, tr: зарад, ru: кольчуга }
+      - type: read
+        show: دَرْز
+        correct: дарз
+        wrong: [дараз, дурз, зарад]
+      - type: build
+        word: dara
+        extra: [ذَ]
+      - type: choice
+        show: زَارَ
+        prompt: Что значит это слово?
+        correct: посетил
+        wrong: [кружил, отогнал, вырос]
+      - type: position
+        letter: ر
+        position: final
+      - type: input
+        show: زَادَ
+        prompt: Напиши, как читается
+        answer: за̄да
+      - type: read
+        show: ذَرَا
+        correct: з̱ара̄
+        wrong: [зара, да̄ра, з̱а̄ра]
+
+  - id: u1-l3
+    kind: letters
+    title: Вав
+    letters: [و]
+    words: [warada, ward, dur, zur, wizr]
+    steps:
+      - type: theory
+        text: |
+          **Вав** و: петля с хвостом под строкой. Звучит как английское w: губы трубочкой.
+          После даммы вав тянет у в долгое **ӯ**, как алиф тянет а.
+        examples:
+          - { ar: وَ, tr: ва }
+          - { ar: دُو, tr: дӯ }
+          - { ar: زُور, tr: зӯр, ru: ложь }
+      - type: read
+        show: وَ
+        correct: ва
+        wrong: [ву, ви, ра]
+      - type: choice
+        prompt: Какая буква делает у долгим?
+        correct: و
+        wrong: [ا, د, ر]
+      - type: read
+        show: دُور
+        correct: дӯр
+        wrong: [да̄р, дур, дуру]
+      - type: build
+        word: warada
+        extra: [وُ]
+      - type: choice
+        show: وَرْد
+        prompt: Что значит это слово?
+        correct: розы
+        wrong: [дом, шов, ложь]
+      - type: input
+        show: وِزْر
+        prompt: Напиши, как читается
+        answer: визр
+      - type: position
+        letter: و
+        position: medial
+
+  - id: u1-l4
+    kind: reading
+    title: Слог и чтение
+    words: [dar]
+    steps:
+      - type: theory
+        text: |
+          Арабский слог всегда начинается с согласного. Типов три:
+          **открытый** да, **закрытый** дар (согласный с сукуном), **долгий** да̄.
+        examples:
+          - { ar: دَ, tr: да, ru: открытый }
+          - { ar: دَرْ, tr: дар, ru: закрытый }
+          - { ar: دَا, tr: да̄, ru: долгий }
+      - type: choice
+        show: وَرَدَ
+        prompt: Сколько слогов в этом слове?
+        correct: "3"
+        wrong: ["2", "4", "1"]
+      - type: theory
+        text: |
+          У существительных последнюю букву пока пишем без огласовки и читаем без гласного, как в конце фразы. Окончания придут в юните 3.
+        examples:
+          - { ar: دَارَ, tr: да̄ра, ru: кружил }
+          - { ar: دَار, tr: да̄р, ru: дом }
+      - type: read
+        show: دَار
+        correct: да̄р
+        wrong: [да̄ра, дар, дӯр]
+      - type: tiles
+        direction: ar-ru
+        source: دَارَ وَزَادَ
+        answer: [кружил, и, вырос]
+        extra: [посетил, пришёл]
+      - type: tiles
+        direction: ru-ar
+        source: пришёл и посетил
+        answer: [وَرَدَ, وَزَارَ]
+        extra: [وَزَادَ, دَارَ]
+      - type: input
+        show: زَرَد
+        prompt: Напиши, как читается
+        answer: зарад
+      - type: choice
+        show: دَرْز
+        prompt: Что значит это слово?
+        correct: шов
+        wrong: [кольчуга, бремя, розы]
