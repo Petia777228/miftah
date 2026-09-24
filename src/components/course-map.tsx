@@ -95,7 +95,7 @@ function UnitRow({ unit, done, nextId }: { unit: Unit; done: Set<string>; nextId
                   >
                     {isDone ? <Check size={16} strokeWidth={2.5} aria-hidden /> : lessonNumber(l.id)}
                   </span>
-                  {l.title}
+                  <InlineText text={l.title} />
                 </Link>
               </li>
             );

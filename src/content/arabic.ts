@@ -109,3 +109,18 @@ export function letterForm(char: string, joining: Joining, position: Position): 
       return TATWEEL + char;
   }
 }
+
+/** Порядок букв в алфавите (хиджаи); хамза отдельно, в конце. */
+export const ALPHABET_ORDER = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي";
+
+export const JOINING_RU: Record<Joining, string> = {
+  dual: "Соединяется с обеих сторон, поэтому у неё четыре формы.",
+  right: "Соединяется только с предыдущей буквой: две формы, в начале слова пишется как отдельная.",
+  none: "Не соединяется ни с чем. Обычно сидит на подставке: أ ؤ ئ.",
+};
+
+/** Все реально различающиеся формы буквы (для правосоединяемых их две). */
+export function distinctForms(char: string, joining: Joining): { position: Position; form: string }[] {
+  const all = (["isolated", "initial", "medial", "final"] as const).map((position) => ({ position, form: letterForm(char, joining, position) }));
+  return all.filter((f, i) => all.findIndex((g) => g.form === f.form) === i);
+}

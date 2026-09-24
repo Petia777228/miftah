@@ -1,6 +1,7 @@
 import { db } from "./db";
 
 export type Theme = "light" | "dark";
+export type ThemeChoice = Theme | "system";
 export const THEME_KEY = "miftah-theme";
 
 /**
@@ -13,8 +14,16 @@ export function currentTheme(): Theme {
   return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
 }
 
-export async function setTheme(theme: Theme) {
-  document.documentElement.dataset.theme = theme;
-  localStorage.setItem(THEME_KEY, theme);
-  await db.settings.put({ key: "theme", value: theme });
+export function storedChoice(): ThemeChoice {
+  const t = localStorage.getItem(THEME_KEY);
+  return t === "light" || t === "dark" ? t : "system";
+}
+
+export async function setTheme(choice: ThemeChoice) {
+  const resolved: Theme =
+    choice === "system" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : choice;
+  document.documentElement.dataset.theme = resolved;
+  if (choice === "system") localStorage.removeItem(THEME_KEY);
+  else localStorage.setItem(THEME_KEY, choice);
+  await db.settings.put({ key: "theme", value: choice });
 }

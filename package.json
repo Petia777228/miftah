@@ -8,10 +8,12 @@
     "dev": "next dev",
     "prebuild": "npm run content --silent",
     "build": "next build",
-    "start": "npx serve@latest out",
+    "start": "node scripts/serve-out.mjs",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "e2e": "node scripts/e2e-golden.mjs"
+    "e2e": "node scripts/e2e-golden.mjs",
+    "images": "node scripts/make-images.mjs",
+    "postbuild": "node scripts/build-sw.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

@@ -28,10 +28,10 @@ export const Button = forwardRef<HTMLButtonElement, Props>(function Button(
   return <button ref={ref} type={type} className={buttonClass(variant, size, className)} {...rest} />;
 });
 
-/** Подсказка горячей клавиши, прячется на тач-устройствах. */
+/** Подсказка горячей клавиши: только для точного указателя (мышь), на тач-экранах скрыта. */
 export function Kbd({ children }: { children: React.ReactNode }) {
   return (
-    <kbd className="hidden rounded-md border border-current/25 px-1.5 py-0.5 font-sans text-[11px] leading-none opacity-70 [@media(hover:hover)]:inline-block">
+    <kbd className="hidden rounded-md border border-current/25 px-1.5 py-0.5 font-sans text-[11px] leading-none opacity-70 [@media(pointer:fine)]:inline-block">
       {children}
     </kbd>
   );

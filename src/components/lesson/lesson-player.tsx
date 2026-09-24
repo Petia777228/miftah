@@ -1,8 +1,7 @@
 "use client";
 
-import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Progress } from "@base-ui/react/progress";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, Check, Flag, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
@@ -13,6 +12,8 @@ import { plural } from "@/lib/dates";
 import { completeLesson, streakFrom } from "@/lib/progress";
 import { Ar, Tr } from "../ar";
 import { Button, buttonClass, Kbd } from "../button";
+import { Confirm } from "../modal";
+import { InlineText } from "../rich-text";
 import {
   correctText,
   emptyAnswer,
@@ -27,6 +28,22 @@ import {
 import { InputExercise, OptionsExercise, TheoryView, TilesExercise } from "./exercises";
 
 const noop = () => () => {};
+const ISSUES = "https://github.com/Petia777228/miftah/issues/new";
+
+/** Ссылка на новый issue с заполненным местом ошибки: юнит, урок, шаг. */
+function issueUrl(lesson: Lesson, step: Lesson["steps"][number]) {
+  const n = step.id.split("-s")[1];
+  const shown = "show" in step && step.show ? step.show : "prompt" in step ? step.prompt : step.text.slice(0, 80);
+  const title = `Ошибка: юнит ${lesson.unit}, урок ${lessonNumber(lesson.id)}, шаг ${n}`;
+  const body = [
+    `Урок: ${lesson.id} «${lesson.title}», шаг ${n} (${step.type})`,
+    `На экране: ${shown}`,
+    "",
+    "Что не так:",
+    "",
+  ].join("\n");
+  return `${ISSUES}?${new URLSearchParams({ title, body })}`;
+}
 const PRAISE = ["Верно", "Точно", "Так и есть", "Правильно"];
 
 /** Урок рендерится только на клиенте: порядок вариантов случайный, а прогресс живёт в IndexedDB. */
@@ -180,11 +197,21 @@ function Session({ lesson }: { lesson: Lesson }) {
         <span className="w-12 text-right text-sm text-ink-faint tabular-nums">
           {passed.size}/{steps.length}
         </span>
+        <a
+          href={issueUrl(lesson, step)}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Сообщить об ошибке в этом шаге (GitHub)"
+          title="Сообщить об ошибке"
+          className="grid h-11 w-11 shrink-0 place-items-center rounded-full text-ink-faint transition-colors hover:bg-sheet-sunk hover:text-ink"
+        >
+          <Flag size={18} strokeWidth={1.75} aria-hidden />
+        </a>
       </header>
 
       <main className="mx-auto w-full max-w-2xl flex-1 px-5 pt-8 pb-60 sm:pb-40 md:pt-12">
         <p className="mb-4 text-xs font-semibold tracking-[0.14em] text-rubric uppercase">
-          {unit.number === 0 ? "Вводный юнит" : `Юнит ${unit.number}`} · урок {lessonNumber(lesson.id)} · {lesson.title}
+          {unit.number === 0 ? "Вводный юнит" : `Юнит ${unit.number}`} · урок {lessonNumber(lesson.id)} · <InlineText text={lesson.title} />
         </p>
         <div key={`${index}-${cursor}`} data-step={step.id}>
           {!isExercise(step) ? (
@@ -208,23 +235,15 @@ function Session({ lesson }: { lesson: Lesson }) {
         onPrimary={primary}
       />
 
-      <AlertDialog.Root open={exitOpen} onOpenChange={setExitOpen}>
-        <AlertDialog.Portal>
-          <AlertDialog.Backdrop className="fixed inset-0 bg-ink/30 transition-opacity duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0" />
-          <AlertDialog.Popup className="fixed top-1/2 left-1/2 w-[min(26rem,calc(100vw-2rem))] -translate-x-1/2 -translate-y-1/2 rounded-card border border-rule bg-sheet p-6 shadow-xl transition-[scale,opacity] duration-150 ease-out-soft data-ending-style:scale-[0.97] data-ending-style:opacity-0 data-starting-style:scale-[0.97] data-starting-style:opacity-0">
-            <AlertDialog.Title className="font-serif text-xl font-semibold">Выйти из урока?</AlertDialog.Title>
-            <AlertDialog.Description className="mt-2 text-ink-soft">
-              Урок засчитывается целиком. Если выйти сейчас, начнёшь его заново.
-            </AlertDialog.Description>
-            <div className="mt-6 flex justify-end gap-3">
-              <AlertDialog.Close className={buttonClass("secondary")}>Остаться</AlertDialog.Close>
-              <button type="button" onClick={exit} className={buttonClass("danger")}>
-                Выйти
-              </button>
-            </div>
-          </AlertDialog.Popup>
-        </AlertDialog.Portal>
-      </AlertDialog.Root>
+      <Confirm
+        open={exitOpen}
+        onOpenChange={setExitOpen}
+        title="Выйти из урока?"
+        description="Урок засчитывается целиком. Если выйти сейчас, начнёшь его заново."
+        cancelLabel="Остаться"
+        confirmLabel="Выйти"
+        onConfirm={exit}
+      />
     </div>
   );
 }
@@ -277,7 +296,7 @@ function Footer({
             </div>
           )}
           {status === "answering" && exercise && (
-            <p className="hidden pt-3 text-sm text-ink-faint [@media(hover:hover)_and_(min-width:640px)]:block">
+            <p className="hidden pt-3 text-sm text-ink-faint [@media(pointer:fine)_and_(min-width:640px)]:block">
               {step.type === "input" ? "Напиши и нажми Enter" : "Клавиши 1–9 выбирают, Enter проверяет, Esc выходит"}
             </p>
           )}
@@ -321,7 +340,9 @@ function FinishScreen({ lesson, result, onNext }: { lesson: Lesson; result: Resu
         <h1 className="mt-6 font-serif text-3xl font-semibold md:text-4xl" data-testid="lesson-done">
           Урок пройден
         </h1>
-        <p className="mt-2 text-ink-soft">{lesson.title}</p>
+        <p className="mt-2 text-ink-soft">
+          <InlineText text={lesson.title} />
+        </p>
 
         <dl className="mx-auto mt-8 grid max-w-sm grid-cols-2 gap-3">
           <div className="rounded-card border border-rule bg-sheet p-4">

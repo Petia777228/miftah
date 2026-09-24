@@ -14,6 +14,7 @@
   --ink-faint: #8c8373;      /* подписи, неактивное */
   --rule: #ddd3c1;           /* линейки, границы */
   --rubric: #a2432a;         /* киноварь: номера, акценты арабского */
+  --trace: #cfc6b6;          /* серый образец в прописях: сплошной цвет, без прозрачности (PDF) */
   --action: #274d6b;         /* синие чернила: главная кнопка, ссылки */
   --action-ink: #fbf8f1;     /* текст на action */
   --success: #3f6a43;
@@ -33,6 +34,7 @@
   --ink-faint: #857d6f;
   --rule: #3a3630;
   --rubric: #e08e68;
+  --trace: #5a544b;
   --action: #9cc0de;
   --action-ink: #16222d;
   --success: #93bf8a;
@@ -40,6 +42,21 @@
   --danger: #ec907a;
   --danger-wash: #3d2521;
   --focus: #9cc0de;
+}
+
+/* Печать: всегда светлый лист и чёрные чернила, в какой бы теме ни был экран. */
+@media print {
+  :root,
+  [data-theme="dark"] {
+    color-scheme: light;
+    --paper: #ffffff;
+    --sheet: #ffffff;
+    --ink: #111111;
+    --ink-soft: #444444;
+    --ink-faint: #777777;
+    --rule: #bbbbbb;
+    --trace: #c4c4c4;
+  }
 }
 
 @theme inline {
@@ -51,6 +68,7 @@
   --color-ink-faint: var(--ink-faint);
   --color-rule: var(--rule);
   --color-rubric: var(--rubric);
+  --color-trace: var(--trace);
   --color-action: var(--action);
   --color-action-ink: var(--action-ink);
   --color-success: var(--success);

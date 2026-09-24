@@ -1,0 +1,258 @@
+# Юнит 3: ه ل ء (нун уже пройден в юните 2), удвоение (шадда), танвин, дифтонги, лигатура لا.
+# Существительные в словаре записаны в паузальной форме, танвин тренируем в упражнениях.
+unit: 3
+words:
+  - { id: nahr,    ar: نَهْر,    tr: нах̮р,    ru: река,                 root: ن ه ر, pos: noun, gender: m }
+  - { id: nahar,   ar: نَهَار,   tr: нах̮а̄р,   ru: "день (светлое время)", root: ن ه ر, pos: noun, gender: m }
+  - { id: walad,   ar: وَلَد,    tr: валад,   ru: "мальчик, сын",        root: و ل د, pos: noun, gender: m }
+  - { id: laban,   ar: لَبَن,    tr: лабан,   ru: кислое молоко,        root: ل ب ن, pos: noun, gender: m }
+  - { id: dhahab,  ar: ذَهَب,    tr: з̱ах̮аб,  ru: золото,               root: ذ ه ب, pos: noun, gender: m }
+  - { id: balad,   ar: بَلَد,    tr: балад,   ru: страна,               root: ب ل د, pos: noun, gender: m }
+  - { id: ab,      ar: أَب,      tr: аб,      ru: отец,                 root: أ ب و, pos: noun, gender: m }
+  - { id: amr,     ar: أَمْر,    tr: амр,     ru: "дело; приказ",        root: أ م ر, pos: noun, gender: m }
+  - { id: maa,     ar: مَاء,     tr: ма̄ʼ,     ru: вода,                 root: م و ه, pos: noun, gender: m }
+  - { id: bir,     ar: بِئْر,    tr: биʼр,    ru: колодец,              root: ب أ ر, pos: noun, gender: f }
+  - { id: lulu,    ar: لُؤْلُؤ,  tr: луʼлуʼ,  ru: жемчуг,               root: ل أ ل أ, pos: noun, gender: m }
+  - { id: arnab,   ar: أَرْنَب,  tr: арнаб,   ru: заяц,                 root: أ ر ن ب, pos: noun, gender: m }
+  - { id: umm,     ar: أُمّ,     tr: умм,     ru: мать,                 root: أ م م, pos: noun, gender: f }
+  - { id: murr,    ar: مُرّ,     tr: мурр,    ru: горький,              root: م ر ر, pos: adj }
+  - { id: radda,   ar: رَدَّ,    tr: радда,   ru: "ответил; вернул",     root: ر د د, pos: verb }
+  - { id: madda,   ar: مَدَّ,    tr: мадда,   ru: протянул,             root: م د د, pos: verb }
+  - { id: dalla,   ar: دَلَّ,    tr: далла,   ru: указал,               root: د ل ل, pos: verb }
+  - { id: bayt,    ar: بَيْت,    tr: байт,    ru: дом,                  root: ب ي ت, pos: noun, gender: m }
+  - { id: layl,    ar: لَيْل,    tr: лайл,    ru: ночь,                 root: ل ي ل, pos: noun, gender: m }
+  - { id: yawm,    ar: يَوْم,    tr: йаум,    ru: "день, сутки",         root: ي و م, pos: noun, gender: m }
+  - { id: lawn,    ar: لَوْن,    tr: лаун,    ru: цвет,                 root: ل و ن, pos: noun, gender: m }
+  - { id: zayt,    ar: زَيْت,    tr: зайт,    ru: "масло (растительное)", root: ز ي ت, pos: noun, gender: m }
+  - { id: thawb,   ar: ثَوْب,    tr: с̱ауб,    ru: одежда,               root: ث و ب, pos: noun, gender: m }
+  - { id: la,      ar: لَا,      tr: ла̄,      ru: "нет; не",             pos: particle }
+  - { id: bilad,   ar: بِلَاد,   tr: била̄д,   ru: "страна, край",        root: ب ل د, pos: noun, gender: f }
+
+lessons:
+  - id: u3-l1
+    kind: letters
+    title: Ха и лям
+    letters: [ه, ل]
+    words: [nahr, nahar, walad, laban, dhahab, balad]
+    steps:
+      - type: theory
+        text: |
+          **Ха** ه: лёгкий выдох, как английское h. Это самая изменчивая буква: в начале слова похожа на петлю с ушком, в середине на восьмёрку, в конце на крючок.
+        examples:
+          - { ar: ه, ru: отдельная }
+          - { ar: هـ, ru: начальная }
+          - { ar: ـهـ, ru: срединная }
+          - { ar: ـه, ru: конечная }
+      - type: position
+        letter: ه
+        position: medial
+      - type: theory
+        text: |
+          **Лям** ل: высокий стебель с чашей внизу, мягкое л. Не путай с алифом: у ляма внизу чаша, и он соединяется со следующей буквой.
+        examples:
+          - { ar: لَ, tr: ла }
+          - { ar: لـ, ru: "лям в начале слова" }
+          - { ar: ـل, ru: "лям в конце слова" }
+      - type: read
+        show: وَلَد
+        correct: валад
+        wrong: [валид, ва̄лад, балад]
+      - type: choice
+        show: نَهْر
+        prompt: Что значит это слово?
+        correct: река
+        wrong: [день, золото, молоко]
+      - type: build
+        word: dhahab
+        extra: [هُ]
+      - type: position
+        letter: ل
+        position: initial
+      - type: input
+        show: بَلَد
+        prompt: Напиши, как читается
+        answer: балад
+      - type: read
+        show: نَهَار
+        correct: нах̮а̄р
+        wrong: [нах̮р, на̄х̮ар, нӯр]
+
+  - id: u3-l2
+    kind: letters
+    title: Хамза
+    letters: [ء]
+    words: [ab, amr, maa, bir, lulu, arnab]
+    steps:
+      - type: theory
+        text: |
+          **Хамза** ء: короткая смычка горла, как пауза в «не-а». Пишется маленьким значком и обычно сидит на «подставке»: на алифе, на ваве или на йа без точек.
+        examples:
+          - { ar: أَ, tr: ʼа, ru: "на алифе сверху" }
+          - { ar: إِ, tr: ʼи, ru: "под алифом: с касрой" }
+          - { ar: ؤ, ru: "на ваве" }
+          - { ar: ئ, ru: "на йа без точек" }
+      - type: theory
+        text: |
+          В начале слова хамзу в транскрипции обычно не пишут: أَب читаем **аб**. В середине и в конце слова смычку слышно: مَاء **ма̄ʼ**.
+        examples:
+          - { ar: أَب, tr: аб, ru: отец }
+          - { ar: مَاء, tr: ма̄ʼ, ru: вода }
+      - type: read
+        show: مَاء
+        correct: ма̄ʼ
+        wrong: [ма̄, маʼа, мӯʼ]
+      - type: choice
+        prompt: Где хамза под алифом?
+        correct: إِ
+        wrong: [أَ, أُ, ا]
+      - type: choice
+        show: أَرْنَب
+        prompt: Что значит это слово?
+        correct: заяц
+        wrong: [отец, колодец, жемчуг]
+      - type: build
+        word: bir
+        extra: [بَ]
+      - type: read
+        show: لُؤْلُؤ
+        correct: луʼлуʼ
+        wrong: [лулу, лӯлӯ, лаʼлаʼ]
+      - type: input
+        show: أَمْر
+        prompt: Напиши, как читается
+        answer: амр
+
+  - id: u3-l3
+    kind: grammar
+    title: Шадда и танвин
+    words: [umm, murr, radda, madda, dalla]
+    steps:
+      - type: theory
+        text: |
+          **Шадда** ◌ّ: маленькая «w» над буквой. Буква читается дважды: конец одного слога и начало следующего. Гласный при шадде пишется рядом с ней.
+        examples:
+          - { ar: رَدَّ, tr: радда, ru: ответил }
+          - { ar: أُمّ, tr: умм, ru: мать }
+      - type: read
+        show: مَدَّ
+        correct: мадда
+        wrong: [мада, ма̄да, мудда]
+      - type: choice
+        show: دَلَّ
+        prompt: Что значит это слово?
+        correct: указал
+        wrong: [протянул, ответил, горький]
+      - type: theory
+        text: |
+          **Танвин**: огласовка, написанная дважды. Добавляет к концу слова н: ун, ан, ин. Так выглядит неопределённое имя: «какой-то дом, какая-то дверь». В паузе, в конце фразы, танвин не читают.
+        examples:
+          - { ar: بَابٌ, tr: ба̄бун, ru: "дверь (ун)" }
+          - { ar: وَلَدٍ, tr: валадин, ru: "мальчика (ин)" }
+          - { ar: ◌ً, tr: ан, ru: "танвин фатхи" }
+      - type: read
+        show: نُورٌ
+        correct: нӯрун
+        wrong: [нӯр, нурун, нӯрин]
+      - type: read
+        show: بِنْتٍ
+        correct: бинтин
+        wrong: [бинтун, бинт, бинтан]
+      - type: build
+        word: radda
+        extra: [دُ]
+      - type: input
+        show: أُمٌّ
+        prompt: Напиши, как читается
+        answer: уммун
+      - type: choice
+        prompt: Где танвин?
+        correct: وَلَدٌ
+        wrong: [وَلَدُ, وَلَد, وَلَدَ]
+
+  - id: u3-l4
+    kind: grammar
+    title: Дифтонги и лям-алиф
+    words: [bayt, layl, yawm, lawn, zayt, thawb, la, bilad]
+    steps:
+      - type: theory
+        text: |
+          **Дифтонги.** Фатха перед вав или йа с сукуном даёт скольжение: **ау** и **ай**, в один слог.
+        examples:
+          - { ar: بَيْت, tr: байт, ru: дом }
+          - { ar: يَوْم, tr: йаум, ru: "день, сутки" }
+      - type: read
+        show: لَيْل
+        correct: лайл
+        wrong: [лӣл, лал, лаил]
+      - type: read
+        show: ثَوْب
+        correct: с̱ауб
+        wrong: [с̱ӯб, таус, с̱аваб]
+      - type: choice
+        prompt: Где долгое ӯ, а не дифтонг ау?
+        correct: نُور
+        wrong: [لَوْن, يَوْم, ثَوْب]
+      - type: theory
+        text: |
+          **Лям-алиф.** Когда за лямом идёт алиф, их пишут одним знаком. Это единственная обязательная лигатура.
+        examples:
+          - { ar: لَا, tr: ла̄, ru: "нет; не" }
+          - { ar: بِلَاد, tr: била̄д, ru: "страна, край" }
+      - type: choice
+        prompt: Как пишется лям + алиф?
+        correct: لا
+        wrong: [ال, لـا]
+      - type: build
+        word: bilad
+      - type: choice
+        show: زَيْت
+        prompt: Что значит это слово?
+        correct: масло (растительное)
+        wrong: [цвет, ночь, одежда]
+      - type: input
+        show: لَوْن
+        prompt: Напиши, как читается
+        answer: лаун
+
+  - id: u3-l5
+    kind: reading
+    title: Читаем с танвином
+    steps:
+      - type: theory
+        text: |
+          Соберём всё вместе: удвоение, танвин, дифтонги. Союз «и» пишется слитно со следующим словом: وَ + لَيْلٌ = وَلَيْلٌ.
+        examples:
+          - { ar: لَيْلٌ وَنَهَارٌ, tr: лайлун ва-нах̮а̄рун, ru: ночь и день }
+          - { ar: أَبٌ وَأُمٌّ, tr: абун ва-уммун, ru: отец и мать }
+      - type: read
+        show: بَيْتٌ
+        correct: байтун
+        wrong: [бӣтун, байт, байтан]
+      - type: tiles
+        direction: ar-ru
+        source: لَيْلٌ وَنَهَارٌ
+        answer: [ночь, и, день]
+        extra: [река, золото]
+      - type: tiles
+        direction: ru-ar
+        source: отец и мать
+        answer: [أَبٌ, وَأُمٌّ]
+        extra: [وَلَدٌ, وَبَيْتٌ]
+      - type: read
+        show: مَاءٌ
+        correct: ма̄ʼун
+        wrong: [ма̄ун, маʼун, ма̄ʼ]
+      - type: tiles
+        direction: ar-ru
+        source: ذَهَبٌ وَلُؤْلُؤٌ
+        answer: [золото, и, жемчуг]
+        extra: [молоко, заяц]
+      - type: input
+        show: لَبَنٌ
+        prompt: Напиши, как читается
+        answer: лабанун
+      - type: choice
+        show: يَوْمٌ
+        prompt: Что значит это слово?
+        correct: "день, сутки"
+        wrong: [ночь, цвет, дом]

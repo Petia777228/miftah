@@ -185,7 +185,7 @@ for (const { file, data } of unitFiles) {
       continue;
     }
     const audio = path.join("words", `${w.id}.mp3`);
-    words[w.id] = { ...w, unit: data.unit, lesson: lessonId, ...(existsSync(path.join(AUDIO, audio)) ? { audio } : {}) };
+    words[w.id] = { ...w, unit: data.unit, lesson: lessonId, letters: analyze(w.ar, knownChars).letters, ...(existsSync(path.join(AUDIO, audio)) ? { audio } : {}) };
   }
   for (const c of unitLetters) {
     if (!letterLesson.has(c)) errors.push(`${where}\n  буква ${letterName(c)} юнита ${data.unit} не введена ни в одном уроке`);
@@ -317,7 +317,7 @@ function finish(): never {
   if (!existsSync(OUT) || readFileSync(OUT, "utf8") !== json) writeFileSync(OUT, json);
   const lessonCount = Object.keys(lessons).length;
   console.log(
-    `✓ Контент собран: ${units.filter((u) => u.lessons.length).length} юнита с уроками, ${lessonCount} уроков, ${Object.keys(words).length} слов → ${rel(OUT)}`,
+    `✓ Контент собран: юнитов с уроками ${units.filter((u) => u.lessons.length).length}, уроков ${lessonCount}, слов ${Object.keys(words).length} → ${rel(OUT)}`,
   );
   process.exit(0);
 }

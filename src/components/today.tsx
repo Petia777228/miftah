@@ -1,7 +1,5 @@
 "use client";
 
-import { ToggleGroup } from "@base-ui/react/toggle-group";
-import { Toggle } from "@base-ui/react/toggle";
 import { useLiveQuery } from "dexie-react-hooks";
 import { ArrowRight, Flame, Layers } from "lucide-react";
 import Link from "next/link";
@@ -12,9 +10,11 @@ import type { Lesson } from "@/content/types";
 import { db } from "@/lib/db";
 import { addDays, dayKey, plural } from "@/lib/dates";
 import { streakFrom } from "@/lib/progress";
-import { GOAL_OPTIONS, setDailyGoal, useDailyGoal } from "@/lib/settings";
-import { Ar } from "./ar";
+import { useDailyGoal } from "@/lib/settings";
+import { Ar, Tr } from "./ar";
 import { buttonClass, Kbd } from "./button";
+import { GoalPicker } from "./goal-picker";
+import { InlineText } from "./rich-text";
 
 /** Сколько карточек должно накопиться, чтобы «Продолжить» вело в повторение, а не в новый урок. */
 const REVIEW_FIRST_AT = 10;
@@ -61,6 +61,10 @@ export function Today() {
 
   const unit = next ? content.units.find((u) => u.number === next.unit) : undefined;
 
+  // Пока IndexedDB не ответила, ничего не показываем: иначе вернувшийся ученик увидит экран гостя.
+  if (!progress || !sessions) return <div className="min-h-[60dvh]" aria-busy="true" />;
+  if (progress.length === 0 && sessions.length === 0) return <Welcome />;
+
   return (
     <div className="animate-rise">
       <p className="font-serif text-[15px] text-ink-faint first-letter:uppercase" aria-live="polite">
@@ -92,7 +96,9 @@ export function Today() {
               <Ar size="xl" className="mt-4 block text-right text-rubric md:mt-2">
                 {lessonGlyphs(nextLesson)}
               </Ar>
-              <h2 className="mt-2 font-serif text-2xl font-semibold">{nextLesson.title}</h2>
+              <h2 className="mt-2 font-serif text-2xl font-semibold">
+                <InlineText text={nextLesson.title} />
+              </h2>
               <p className="mt-1 text-ink-soft">
                 {next!.exercises} {plural(next!.exercises, "упражнение", "упражнения", "упражнений")} · около{" "}
                 {Math.max(2, Math.round(next!.exercises * 0.4))} мин
@@ -143,22 +149,7 @@ export function Today() {
                 <p className="text-sm text-ink-soft">{minutesToday >= goal ? "Цель на сегодня выполнена" : "цель на сегодня"}</p>
               </div>
             </div>
-            <ToggleGroup
-              value={[String(goal)]}
-              onValueChange={(v) => v[0] && setDailyGoal(Number(v[0]))}
-              aria-label="Цель в минутах"
-              className="mt-5 flex gap-1 rounded-full bg-sheet-sunk p-1"
-            >
-              {GOAL_OPTIONS.map((m) => (
-                <Toggle
-                  key={m}
-                  value={String(m)}
-                  className="h-9 flex-1 rounded-full text-sm text-ink-soft transition-colors data-pressed:bg-sheet data-pressed:text-ink data-pressed:shadow-sm"
-                >
-                  {m}
-                </Toggle>
-              ))}
-            </ToggleGroup>
+            <GoalPicker className="mt-5" />
           </section>
 
           {!reviewFirst && (due ?? 0) > 0 && (
@@ -175,6 +166,44 @@ export function Today() {
         </aside>
       </div>
     </div>
+  );
+}
+
+/** Первый заход: что это и одна кнопка. */
+function Welcome() {
+  const first = lessonOrder[0];
+  return (
+    <section className="grid animate-rise items-center gap-10 pt-2 md:grid-cols-[1.2fr_1fr] md:pt-8" aria-labelledby="welcome-title">
+      <div>
+        <h1 id="welcome-title" className="font-serif text-4xl leading-tight font-semibold tracking-tight md:text-5xl">
+          Арабский с нуля: классический язык, фусха
+        </h1>
+        <p className="mt-5 max-w-lg text-lg text-ink-soft">
+          Курс идёт по порядку вузовского учебника С. А. Кузьмина: буквы приходят вместе с грамматикой, к четвёртому юниту
+          читаешь первые фразы.
+        </p>
+        <p className="mt-3 max-w-lg text-lg text-ink-soft">
+          Бесплатно и без регистрации. После первого захода работает без интернета, прописи печатаются на A4.
+        </p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <Link href={`/learn/${first.id}/`} className={buttonClass("primary", "lg")}>
+            Начать первый урок <ArrowRight size={18} aria-hidden />
+            <Kbd>Enter</Kbd>
+          </Link>
+          <Link href="/course/" className={buttonClass("ghost", "lg")}>
+            Карта курса
+          </Link>
+        </div>
+      </div>
+      <div className="order-first text-center md:order-none md:text-right" aria-hidden>
+        <Ar size="inherit" className="block text-[5.5rem] leading-[1.6] text-rubric md:text-[10rem]">
+          مِفْتَاح
+        </Ar>
+        <p className="font-serif text-ink-soft">
+          <Tr>мифта̄х̣</Tr> · ключ
+        </p>
+      </div>
+    </section>
   );
 }
 

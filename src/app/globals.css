@@ -38,3 +38,16 @@
     transition-duration: 1ms !important;
   }
 }
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  html,
+  body {
+    background: var(--color-sheet);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

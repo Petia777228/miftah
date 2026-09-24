@@ -30,9 +30,10 @@ function Frame({ prompt, children }: { prompt: string; children: React.ReactNode
 /** Карточка с арабским «экспонатом» или русской фразой. */
 function Exhibit({ text }: { text: string }) {
   return (
-    <div className="mt-6 grid min-h-36 place-items-center rounded-card border border-rule bg-sheet px-4 py-4">
+    <div className="mt-6 grid min-h-36 place-items-center rounded-card border border-rule bg-sheet px-4 py-6">
       {isArabic(text) ? (
-        <Ar size="xl" className="text-ink">
+        // Фраза крупным кеглем не влезает на телефон и задевает рамку огласовками: берём ступень меньше.
+        <Ar size={/\s/.test(text.trim()) ? "lg" : "xl"} className="text-center text-ink">
           {text}
         </Ar>
       ) : (
@@ -52,7 +53,7 @@ export function TheoryView({ step }: { step: TheoryStep }) {
         <ul className="mt-8 grid gap-3 sm:grid-cols-2">
           {step.examples.map((e, i) => (
             <li key={i} className="flex items-center gap-4 rounded-card border border-rule bg-sheet px-5 py-3">
-              <Ar size="lg" className="min-w-16 text-center text-rubric">
+              <Ar size={/\s/.test(e.ar.trim()) ? "md" : "lg"} className="min-w-16 shrink-0 text-center whitespace-nowrap text-rubric">
                 {e.ar}
               </Ar>
               <div className="min-w-0">

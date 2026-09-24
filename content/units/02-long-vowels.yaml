@@ -1,0 +1,230 @@
+# Юнит 2: ب ت ث ن م ي, ударение, долгие гласные.
+# Шадды, танвина и дифтонгов (ай, ау) ещё нет: они в юните 3.
+# С этого юнита буквы соединяются с обеих сторон: у них четыре формы.
+unit: 2
+words:
+  - { id: bab,    ar: بَاب,    tr: ба̄б,    ru: дверь,            root: ب و ب, pos: noun, gender: m }
+  - { id: bard,   ar: بَرْد,   tr: бард,   ru: холод,            root: ب ر د, pos: noun, gender: m }
+  - { id: badr,   ar: بَدْر,   tr: бадр,   ru: полная луна,      root: ب د ر, pos: noun, gender: m }
+  - { id: darb,   ar: دَرْب,   tr: дарб,   ru: "тропа, путь",    root: د ر ب, pos: noun, gender: m }
+  - { id: turab,  ar: تُرَاب,  tr: тура̄б,  ru: "земля, прах",    root: ت ر ب, pos: noun, gender: m }
+  - { id: taba,   ar: تَابَ,   tr: та̄ба,   ru: раскаялся,        root: ت و ب, pos: verb }
+  - { id: thara,  ar: ثَارَ,   tr: с̱а̄ра,   ru: восстал,          root: ث و ر, pos: verb }
+  - { id: barid,  ar: بَارِد,  tr: ба̄рид,  ru: холодный,         root: ب ر د, pos: adj }
+  - { id: nar,    ar: نَار,    tr: на̄р,    ru: огонь,            root: ن و ر, pos: noun, gender: f }
+  - { id: nur,    ar: نُور,    tr: нӯр,    ru: свет,             root: ن و ر, pos: noun, gender: m }
+  - { id: tamr,   ar: تَمْر,   tr: тамр,   ru: финики,           root: ت م ر, pos: noun, gender: m }
+  - { id: namir,  ar: نَمِر,   tr: намир,  ru: тигр,             root: ن م ر, pos: noun, gender: m }
+  - { id: zaman,  ar: زَمَن,   tr: заман,  ru: время,            root: ز م ن, pos: noun, gender: m }
+  - { id: bint,   ar: بِنْت,   tr: бинт,   ru: "девочка, дочь",  root: ب ن و, pos: noun, gender: f }
+  - { id: ramz,   ar: رَمْز,   tr: рамз,   ru: "знак, символ",   root: ر م ز, pos: noun, gender: m }
+  - { id: din,    ar: دِين,    tr: дӣн,    ru: религия,          root: د ي ن, pos: noun, gender: m }
+  - { id: tin,    ar: تِين,    tr: тӣн,    ru: инжир,            root: ت ي ن, pos: noun, gender: m }
+  - { id: yad,    ar: يَد,     tr: йад,    ru: рука,             root: ي د ي, pos: noun, gender: f }
+  - { id: mizan,  ar: مِيزَان, tr: мӣза̄н,  ru: весы,             root: و ز ن, pos: noun, gender: m }
+  - { id: dinar,  ar: دِينَار, tr: дӣна̄р,  ru: динар,            root: د ن ر, pos: noun, gender: m }
+  - { id: yamin,  ar: يَمِين,  tr: йамӣн,  ru: "правая сторона", root: ي م ن, pos: noun, gender: f }
+
+lessons:
+  - id: u2-l1
+    kind: letters
+    title: Ба, та, са
+    letters: [ب, ت, ث]
+    words: [bab, bard, badr, darb, turab, taba, thara, barid]
+    steps:
+      - type: theory
+        text: |
+          Три буквы с одной «лодочкой» и разными точками. **Ба** ب: точка снизу, звук б. **Та** ت: две точки сверху, звук т. **Са** ث: три точки сверху, звук с̱, как th в английском *think*.
+        examples:
+          - { ar: بَ, tr: ба }
+          - { ar: تِ, tr: ти }
+          - { ar: ثُ, tr: с̱у }
+      - type: read
+        show: تُ
+        correct: ту
+        wrong: [ба, с̱у, ти]
+      - type: choice
+        prompt: Где звук с̱?
+        correct: ثَ
+        wrong: [تَ, بَ, ذَ]
+      - type: theory
+        text: |
+          Эти буквы соединяются с обеих сторон, поэтому у них четыре формы. В начале и в середине слова от лодочки остаётся зубец с точками.
+        examples:
+          - { ar: ب, ru: отдельная }
+          - { ar: بـ, ru: начальная }
+          - { ar: ـبـ, ru: срединная }
+          - { ar: ـب, ru: конечная }
+      - type: position
+        letter: ب
+        position: initial
+      - type: position
+        letter: ت
+        position: medial
+      - type: read
+        show: بَاب
+        correct: ба̄б
+        wrong: [баб, бӯб, та̄б]
+      - type: build
+        word: turab
+        extra: [ثُ]
+      - type: choice
+        show: بَرْد
+        prompt: Что значит это слово?
+        correct: холод
+        wrong: [дверь, тропа, луна]
+      - type: input
+        show: دَرْب
+        prompt: Напиши, как читается
+        answer: дарб
+      - type: choice
+        show: بَدْر
+        prompt: Что значит это слово?
+        correct: полная луна
+        wrong: [холодный, земля, дверь]
+
+  - id: u2-l2
+    kind: letters
+    title: Нун и мим
+    letters: [ن, م]
+    words: [nar, nur, tamr, namir, zaman, bint, ramz]
+    steps:
+      - type: theory
+        text: |
+          **Нун** ن: чаша с точкой над ней, звук н. В начале и середине слова похожа на ба, но точка сверху.
+          **Мим** م: маленькая петля с хвостом вниз, звук м.
+        examples:
+          - { ar: نَ, tr: на }
+          - { ar: نـ, ru: "нун в начале слова" }
+          - { ar: مِ, tr: ми }
+          - { ar: ـم, ru: "мим в конце слова" }
+      - type: choice
+        prompt: Где нун в начале слова?
+        correct: نـ
+        wrong: [بـ, تـ, ثـ]
+      - type: read
+        show: نَار
+        correct: на̄р
+        wrong: [нӯр, нар, ма̄р]
+      - type: read
+        show: نُور
+        correct: нӯр
+        wrong: [на̄р, нур, мӯр]
+      - type: build
+        word: tamr
+        extra: [نَ]
+      - type: choice
+        show: بِنْت
+        prompt: Что значит это слово?
+        correct: "девочка, дочь"
+        wrong: [финики, тигр, огонь]
+      - type: position
+        letter: م
+        position: final
+      - type: input
+        show: زَمَن
+        prompt: Напиши, как читается
+        answer: заман
+      - type: choice
+        show: نَمِر
+        prompt: Что значит это слово?
+        correct: тигр
+        wrong: [символ, время, свет]
+
+  - id: u2-l3
+    kind: letters
+    title: Йа и долгие гласные
+    letters: [ي]
+    words: [din, tin, yad, mizan, dinar, yamin]
+    steps:
+      - type: theory
+        text: |
+          **Йа** ي: как нун, но две точки снизу. В начале слога звучит как й. После касры тянет и в долгое **ӣ**.
+        examples:
+          - { ar: يَ, tr: йа }
+          - { ar: دِي, tr: дӣ }
+          - { ar: يـ, ru: "йа в начале слова" }
+      - type: theory
+        text: |
+          Теперь все три долгих гласных на месте. Долгий гласный держим вдвое дольше краткого: от этого меняется слово.
+        examples:
+          - { ar: بَا, tr: ба̄, ru: "фатха + алиф" }
+          - { ar: بُو, tr: бӯ, ru: "дамма + вав" }
+          - { ar: بِي, tr: бӣ, ru: "касра + йа" }
+      - type: read
+        show: تِين
+        correct: тӣн
+        wrong: [тин, та̄н, тӯн]
+      - type: choice
+        prompt: Какая буква делает и долгим?
+        correct: ي
+        wrong: [ا, و, ن]
+      - type: read
+        show: يَد
+        correct: йад
+        wrong: [йа̄д, йуд, бад]
+      - type: build
+        word: dinar
+        extra: [دَ]
+      - type: position
+        letter: ي
+        position: medial
+      - type: choice
+        show: مِيزَان
+        prompt: Что значит это слово?
+        correct: весы
+        wrong: [динар, инжир, рука]
+      - type: input
+        show: دِين
+        prompt: Напиши, как читается
+        answer: дӣн
+
+  - id: u2-l4
+    kind: reading
+    title: Ударение и чтение
+    steps:
+      - type: theory
+        text: |
+          Арабское ударение слабее русского. Правило для слов, которые у нас уже есть:
+          если последний слог долгий и закрытый, ударение на нём: дӣ**НА̄Р**, мӣ**ЗА̄Н**.
+          Иначе ударение на ближайшем к концу долгом слоге: **ТА̄**ба. Долгих нет: на первом слоге, **ЗА**ман.
+      - type: choice
+        prompt: Где ударение в слове тура̄б?
+        correct: туРА̄Б
+        wrong: [ТУра̄б]
+      - type: choice
+        prompt: Где ударение в слове ба̄рид?
+        correct: БА̄рид
+        wrong: [ба̄РИД]
+      - type: choice
+        prompt: Где ударение в слове намир?
+        correct: НАмир
+        wrong: [наМИР]
+      - type: theory
+        text: |
+          Краткий и долгий гласный различают слова. Сравни: زَمَن и زَمَان. Оба значат «время», но второе звучит иначе и пишется с алифом.
+        examples:
+          - { ar: زَمَن, tr: заман }
+          - { ar: زَمَان, tr: зама̄н }
+      - type: read
+        show: زَمَان
+        correct: зама̄н
+        wrong: [заман, замӣн, зӯман]
+      - type: tiles
+        direction: ar-ru
+        source: تَمْر وَتِين
+        answer: [финики, и, инжир]
+        extra: [огонь, дверь]
+      - type: tiles
+        direction: ru-ar
+        source: огонь и свет
+        answer: [نَار, وَنُور]
+        extra: [وَتِين, بَاب]
+      - type: input
+        show: يَمِين
+        prompt: Напиши, как читается
+        answer: йамӣн
+      - type: read
+        show: ثَارَ
+        correct: с̱а̄ра
+        wrong: [та̄ра, с̱ара, са̄ра]

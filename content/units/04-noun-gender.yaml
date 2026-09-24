@@ -1,0 +1,259 @@
+# Юнит 4: ج ح خ ع, имя, род (та марбута ة), именное предложение هٰذَا بَيْتٌ, вопрос هَلْ / مَا.
+# Малый алиф в هٰذَا и هٰذِهِ разрешён с этого юнита (course.yaml, marks).
+unit: 4
+words:
+  - { id: jamal,     ar: جَمَل,     tr: джамал,     ru: верблюд,              root: ج م ل, pos: noun, gender: m }
+  - { id: jabal,     ar: جَبَل,     tr: джабал,     ru: гора,                 root: ج ب ل, pos: noun, gender: m }
+  - { id: bahr,      ar: بَحْر,     tr: бах̣р,      ru: море,                 root: ب ح ر, pos: noun, gender: m }
+  - { id: halib,     ar: حَلِيب,    tr: х̣алӣб,     ru: молоко,               root: ح ل ب, pos: noun, gender: m }
+  - { id: rajul,     ar: رَجُل,     tr: раджул,     ru: мужчина,              root: ر ج ل, pos: noun, gender: m }
+  - { id: jadid,     ar: جَدِيد,    tr: джадӣд,     ru: новый,                root: ج د د, pos: adj }
+  - { id: hubb,      ar: حُبّ,      tr: х̣убб,      ru: любовь,               root: ح ب ب, pos: noun, gender: m }
+  - { id: khubz,     ar: خُبْز,     tr: хубз,       ru: хлеб,                 root: خ ب ز, pos: noun, gender: m }
+  - { id: ayn,       ar: عَيْن,     tr: ʻайн,       ru: "глаз; источник",      root: ع ي ن, pos: noun, gender: f }
+  - { id: ilm,       ar: عِلْم,     tr: ʻилм,       ru: "знание, наука",       root: ع ل م, pos: noun, gender: m }
+  - { id: akh,       ar: أَخ,       tr: ах,         ru: брат,                 root: أ خ و, pos: noun, gender: m }
+  - { id: tarikh,    ar: تَارِيخ,   tr: та̄рӣх,      ru: история,              root: أ ر خ, pos: noun, gender: m }
+  - { id: amal,      ar: عَمَل,     tr: ʻамал,      ru: "работа, дело",        root: ع م ل, pos: noun, gender: m }
+  - { id: madina,    ar: مَدِينَة,  tr: мадӣна,     ru: город,                root: م د ن, pos: noun, gender: f }
+  - { id: jamia,     ar: جَامِعَة,  tr: джа̄миʻа,    ru: университет,          root: ج م ع, pos: noun, gender: f }
+  - { id: jadd,      ar: جَدّ,      tr: джадд,      ru: дед,                  root: ج د د, pos: noun, gender: m }
+  - { id: jadda,     ar: جَدَّة,    tr: джадда,     ru: бабушка,              root: ج د د, pos: noun, gender: f }
+  - { id: muallim,   ar: مُعَلِّم,  tr: муʻаллим,   ru: учитель,              root: ع ل م, pos: noun, gender: m }
+  - { id: muallima,  ar: مُعَلِّمَة, tr: муʻаллима, ru: учительница,          root: ع ل م, pos: noun, gender: f }
+  - { id: hadha,     ar: هٰذَا,     tr: х̮а̄з̱а̄,      ru: "этот, это (м. р.)",   pos: particle }
+  - { id: hadhihi,   ar: هٰذِهِ,    tr: х̮а̄з̱их̮и,    ru: "эта, это (ж. р.)",    pos: particle }
+  - { id: hal,       ar: هَلْ,      tr: х̮ал,       ru: "ли (общий вопрос)",   pos: particle }
+  - { id: ma,        ar: مَا,       tr: ма̄,        ru: "что?",               pos: particle }
+  - { id: naam,      ar: نَعَمْ,    tr: наʻам,      ru: да,                   pos: particle }
+
+lessons:
+  - id: u4-l1
+    kind: letters
+    title: Джим и ха
+    letters: [ج, ح]
+    words: [jamal, jabal, bahr, halib, rajul, jadid, hubb]
+    steps:
+      - type: theory
+        text: |
+          Одна форма, разные точки. **Джим** ج: точка внутри, слитное дж. **Ха** ح: без точки, звук х̣: сиплый выдох из глубины горла, будто дышишь на очки.
+        examples:
+          - { ar: جَ, tr: джа }
+          - { ar: حِ, tr: х̣и }
+          - { ar: جـ, ru: "джим в начале слова" }
+          - { ar: ـح, ru: "ха в конце слова" }
+      - type: read
+        show: جَمَل
+        correct: джамал
+        wrong: [х̣амал, джабал, джа̄мал]
+      - type: choice
+        prompt: Где звук х̣?
+        correct: حَ
+        wrong: [جَ, هَ, ذَ]
+      - type: position
+        letter: ج
+        position: medial
+      - type: build
+        word: rajul
+        extra: [حُ]
+      - type: choice
+        show: بَحْر
+        prompt: Что значит это слово?
+        correct: море
+        wrong: [гора, верблюд, молоко]
+      - type: input
+        show: حَلِيب
+        prompt: Напиши, как читается
+        answer: х̣алӣб
+      - type: read
+        show: جَدِيد
+        correct: джадӣд
+        wrong: [джадид, х̣адӣд, джудӯд]
+
+  - id: u4-l2
+    kind: letters
+    title: Ха с точкой и айн
+    letters: [خ, ع]
+    words: [khubz, ayn, ilm, akh, tarikh, amal]
+    steps:
+      - type: theory
+        text: |
+          **Ха с точкой** خ: та же форма, точка сверху. Грубое х, как в «хор».
+          **Айн** ع: звонкое сжатие горла, в русском похожего звука нет. Попробуй сказать «а», сдавив горло. В транскрипции значок ʻ.
+        examples:
+          - { ar: خُ, tr: ху }
+          - { ar: عَ, tr: ʻа }
+          - { ar: عـ, ru: "айн в начале слова" }
+          - { ar: ـعـ, ru: "айн в середине слова" }
+      - type: choice
+        prompt: Где грубое х, как в «хор»?
+        correct: خَ
+        wrong: [حَ, جَ, هَ]
+      - type: read
+        show: خُبْز
+        correct: хубз
+        wrong: [х̣убз, хабз, джубз]
+      - type: position
+        letter: ع
+        position: final
+      - type: build
+        word: amal
+        extra: [عِ]
+      - type: choice
+        show: عِلْم
+        prompt: Что значит это слово?
+        correct: "знание, наука"
+        wrong: [работа, история, глаз]
+      - type: input
+        show: تَارِيخ
+        prompt: Напиши, как читается
+        answer: та̄рӣх
+      - type: read
+        show: عَيْن
+        correct: ʻайн
+        wrong: [ʻӣн, ʻа̄н, ʻайнун]
+
+  - id: u4-l3
+    kind: grammar
+    title: Род имени
+    words: [madina, jamia, jadd, jadda, muallim, muallima]
+    steps:
+      - type: theory
+        text: |
+          У имени два рода: мужской и женский. Главный признак женского рода: **та марбута** ة на конце. Это ха с двумя точками. В паузе читаем **а**, в танвине **атун**.
+        examples:
+          - { ar: مُعَلِّم, tr: муʻаллим, ru: учитель }
+          - { ar: مُعَلِّمَة, tr: муʻаллима, ru: учительница }
+          - { ar: مَدِينَةٌ, tr: мадӣнатун, ru: "город (с танвином)" }
+      - type: choice
+        prompt: Какое слово женского рода?
+        correct: جَامِعَة
+        wrong: [جَمَل, خُبْز, بَيْت]
+      - type: read
+        show: جَدَّة
+        correct: джадда
+        wrong: [джадд, джада, джаддатун]
+      - type: theory
+        text: |
+          Бывает женский род и без ة: у слов, которые означают женщин, и у нескольких старых слов. Их запоминаем.
+        examples:
+          - { ar: أُمّ, tr: умм, ru: мать }
+          - { ar: بِنْت, tr: бинт, ru: "девочка, дочь" }
+          - { ar: دَار, tr: да̄р, ru: дом }
+          - { ar: عَيْن, tr: ʻайн, ru: глаз }
+      - type: choice
+        prompt: Какое слово женского рода, хотя ة нет?
+        correct: أُمّ
+        wrong: [أَب, أَخ, رَجُل]
+      - type: build
+        word: muallima
+        extra: [مَ]
+      - type: input
+        show: مَدِينَةٌ
+        prompt: Напиши, как читается
+        answer: мадӣнатун
+      - type: choice
+        show: جَامِعَة
+        prompt: Что значит это слово?
+        correct: университет
+        wrong: [город, бабушка, учительница]
+
+  - id: u4-l4
+    kind: grammar
+    title: "Это дом: هٰذَا بَيْتٌ"
+    words: [hadha, hadhihi]
+    steps:
+      - type: theory
+        text: |
+          Первое предложение. Глагола «есть» в нём нет: **هٰذَا بَيْتٌ**, дословно «это дом». Над х̮а стоит малый алиф: он читается как долгое а̄, хотя алифа в строке нет.
+        examples:
+          - { ar: هٰذَا بَيْتٌ, tr: х̮а̄з̱а̄ байтун, ru: Это дом. }
+          - { ar: هٰذِهِ مَدِينَةٌ, tr: х̮а̄з̱их̮и мадӣнатун, ru: Это город. }
+      - type: theory
+        text: |
+          Слово «это» согласуется в роде: **هٰذَا** перед мужским родом, **هٰذِهِ** перед женским.
+        examples:
+          - { ar: هٰذَا, tr: х̮а̄з̱а̄, ru: "м. р." }
+          - { ar: هٰذِهِ, tr: х̮а̄з̱их̮и, ru: "ж. р." }
+      - type: choice
+        prompt: "Что подставить: ___ جَامِعَةٌ"
+        correct: هٰذِهِ
+        wrong: [هٰذَا]
+      - type: choice
+        prompt: "Что подставить: ___ جَبَلٌ"
+        correct: هٰذَا
+        wrong: [هٰذِهِ]
+      - type: choice
+        prompt: "Что подставить: ___ أُمٌّ"
+        correct: هٰذِهِ
+        wrong: [هٰذَا]
+        note: "Мать женского рода, хотя ة на конце нет."
+      - type: tiles
+        direction: ar-ru
+        source: هٰذَا رَجُلٌ
+        answer: [это, мужчина]
+        extra: [эта, мальчик]
+      - type: tiles
+        direction: ru-ar
+        source: Это учительница.
+        answer: [هٰذِهِ, مُعَلِّمَةٌ]
+        extra: [هٰذَا, مُعَلِّمٌ]
+      - type: read
+        show: هٰذَا خُبْزٌ
+        correct: х̮а̄з̱а̄ хубзун
+        wrong: [х̮аз̱а хубз, х̮а̄з̱их̮и хубзун, ха̄з̱а̄ х̣убзун]
+      - type: input
+        show: هٰذِهِ
+        prompt: Напиши, как читается
+        answer: х̮а̄з̱их̮и
+        also: [хазихи, ха̄зихи]
+
+  - id: u4-l5
+    kind: reading
+    title: "Вопрос: هَلْ и مَا"
+    words: [hal, ma, naam]
+    steps:
+      - type: theory
+        text: |
+          **هَلْ** в начале превращает предложение в вопрос «да или нет». Ответ: **نَعَمْ** «да» или **لَا** «нет».
+        examples:
+          - { ar: هَلْ هٰذَا جَمَلٌ؟, tr: х̮ал х̮а̄з̱а̄ джамалун, ru: Это верблюд? }
+          - { ar: نَعَمْ، هٰذَا جَمَلٌ., tr: "наʻам, х̮а̄з̱а̄ джамалун", ru: "Да, это верблюд." }
+      - type: theory
+        text: |
+          **مَا** спрашивает «что?». Ответ строится тем же предложением.
+        examples:
+          - { ar: مَا هٰذَا؟, tr: ма̄ х̮а̄з̱а̄, ru: Что это? }
+          - { ar: هٰذَا خُبْزٌ., tr: х̮а̄з̱а̄ хубзун, ru: Это хлеб. }
+      - type: tiles
+        direction: ar-ru
+        source: مَا هٰذَا؟
+        answer: [что, это]
+        extra: [ли, да]
+      - type: choice
+        show: هَلْ هٰذِهِ جَامِعَةٌ؟
+        prompt: Что значит эта фраза?
+        correct: Это университет?
+        wrong: [Это университет., Что это за университет?, Где университет?]
+      - type: choice
+        prompt: "Как ответить «да» на هَلْ هٰذَا بَيْتٌ؟"
+        correct: نَعَمْ، هٰذَا بَيْتٌ.
+        wrong: [لَا، هٰذَا بَيْتٌ., مَا هٰذَا بَيْتٌ.]
+      - type: tiles
+        direction: ru-ar
+        source: Это море?
+        answer: [هَلْ, هٰذَا, بَحْرٌ؟]
+        extra: [مَا, هٰذِهِ]
+      - type: read
+        show: نَعَمْ
+        correct: наʻам
+        wrong: [наʻим, на̄ʻам, намʻа]
+      - type: tiles
+        direction: ru-ar
+        source: "Нет, это гора."
+        answer: [لَا،, هٰذَا, جَبَلٌ.]
+        extra: [نَعَمْ،, هٰذِهِ]
+      - type: input
+        show: مَا هٰذَا؟
+        prompt: Напиши, как читается
+        answer: ма̄ х̮а̄з̱а̄

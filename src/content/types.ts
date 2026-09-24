@@ -69,7 +69,8 @@ export type Unit = {
   lessons: LessonSummary[];
 };
 
-export type BuiltWord = Word & { unit: number; lesson: string; audio?: string };
+/** letters: изучаемые буквы слова (составные вроде ة и أ раскрыты), для примеров в алфавите и прописях. */
+export type BuiltWord = Word & { unit: number; lesson: string; letters: string[]; audio?: string };
 export type BuiltLetter = Letter & { audio?: string };
 
 export type Content = {
